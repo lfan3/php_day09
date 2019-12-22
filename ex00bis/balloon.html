@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+        </script>
+        <title>Javascript</title>
+        <style>
+                #ballon {
+                    background-color: red;
+                    height: 200px;
+                    width: 200px;
+                    border-radius: 50%;
+                    }
+        </style>
+    </head>
+    <body>
+        <div id = 'ballon'></div>
+        <script>
+            $(document).ready(function(){
+                $("#ballon").click(function(){
+                    if($(this).css("background-color") == "rgb(255, 0, 0)")
+                        $(this).css("background-color","green");
+                    else if($(this).css("background-color") == "rgb(0, 128, 0)")
+                        $(this).css("background-color","blue");
+                    else if($(this).css("background-color") == "rgb(0, 0, 255)")
+                        $(this).css("background-color","red");
+                    if($(this).css("height") <= "420"){
+                        $(this).css("height","+=10");
+                        $(this).css("width", "+=10");
+                    }
+                    else{
+                        $(this).css("height", "200");
+                        $(this).css("width", "200");
+                        $(this).css("height", "200");
+                        $(this).css("width", "200");
+                    }
+                })
+                $('#ballon').mouseleave(function(){
+                    if ($(this).css('height') >= '205'){
+                        $(this).css('height', '-=5');
+                        $(this).css('width', '-=5');
+                        $(this).css('height', '-=5');
+                        $(this).css('width', '-=5');
+                    }
+                    if($(this).css("background-color") == "rgb(255, 0, 0)")
+                        $(this).css("background-color","blue");
+                    else if($(this).css("background-color") == "rgb(0, 128, 0)")
+                        $(this).css("background-color","red");
+                    else if($(this).css("background-color") == "rgb(0, 0, 255)")
+                        $(this).css("background-color","green"); 
+                })
+            })
+            
+        </script>
+
+    </body>
+</html>

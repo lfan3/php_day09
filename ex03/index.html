@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset="UTF-8">
+        <style>
+            #button{
+                height: 50px;
+                width: 150px;
+            }
+        </style>
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <div id="ft_list">
+        </div>
+        <input id ="button" type="button" value="Add My New To-Do-List">
+        <script type="text/Javascript" src = "todo.js" ></script>
+        <script>
+            function del(i)
+            {
+                if (confirm("Avez vous vraiment finis cette tache ?")) 
+                { 
+                    var ide = $(i).attr('id');
+                    $.ajax({
+                        url : 'delete.php',
+                        data : 'id='+ ide,
+                        type : 'POST',
+                        dataType : 'html',
+                        success : function(code_html, statut){ // code_html contient le HTML renvoyé
+                            $(i).remove();
+                       }
+                    })
+                }
+            }
+        </script>      
+        
+    </body>
+</html>

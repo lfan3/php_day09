@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <style>
+                #ballon {
+                    background-color: red;
+                    height: 200px;
+                    width: 200px;
+                    border-radius: 50%;
+                    }
+        </style>
+    </head>
+    <body>
+        <div id = 'ballon' onclick="ballonTransform()" onmouseleave="reduceBallonSize()"></div>
+        <script>
+            var ballon = document.getElementById("ballon"); 
+
+            function ballonTransform() {
+                var ballonHeight = ballon.offsetHeight;   
+                var ballonWidth = ballon.offsetWidth;
+                if(ballon.style.backgroundColor == "red" || ballon.style.backgroundColor == '')
+                    ballon.style.backgroundColor = "green";
+                else if(ballon.style.backgroundColor == "green")
+                    ballon.style.backgroundColor = "blue";
+                else if(ballon.style.backgroundColor == "blue")
+                    ballon.style.backgroundColor = "red";
+                if (ballonHeight <= 420){
+                    ballon.style.height = ballonHeight + 10 + "px";
+                    ballon.style.width = ballonWidth + 10 + "px";
+                }
+                else{
+                    ballon.style.height = "200px";
+                    ballon.style.width = "200px";
+                }
+            }
+
+            function reduceBallonSize(){
+                var ballonHeight = ballon.offsetHeight;   
+                var ballonWidth = ballon.offsetWidth;
+                if(ballonHeight >= 205){
+                    ballon.style.height = ballonHeight - 5 + "px";
+                    ballon.style.width = ballonWidth - 5 + "px"; 
+                }
+                if(ballon.style.backgroundColor == "red")
+                    ballon.style.backgroundColor = "blue";
+                else if(ballon.style.backgroundColor == "green")
+                    ballon.style.backgroundColor = "red";
+                else if(ballon.style.backgroundColor = "blue")
+                    ballon.style.backgroundColor = "green";   
+            }
+
+        </script>
+
+    </body>
+</html>

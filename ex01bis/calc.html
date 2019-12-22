@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset="UTF-8">
+        <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <input type="text" id="left" size="50">
+        <br />
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+            <option value="*">*</option>
+        </select>
+        <br />
+        <input type="text" id="right" size="50" >
+        <br />
+        <input type="submit" value="Try me!" id="submit">
+          
+        <script>
+            $(document).ready(function(){
+                var timeIntervalID = setInterval(Timer,30000);
+                function Timer(){ alert("Please, use me..."); }
+                $('#submit').click(function(){
+                    var ln = Number($('#left').val());
+                    var rn = Number($('#right').val());
+                    var op = $('#operator').val();
+                    var resultat;
+                    if(ln < 0 || rn < 0)
+                    alert("Error :(");
+                    if(op == '+')
+                        resultat = ln + rn;
+                    if(op == '-')
+                        resultat = ln - rn;
+                    if(op == '*')
+                        resultat = ln * rn;
+                    if(op == '/' && rn == 0)
+                        resultat = "It’s over 9000!";
+                    else if(op == '/' && rn != 0)
+                        resultat = ln / rn;
+                    if(op == '%' && rn == 0)
+                        resultat = "It’s over 9000!";
+                    else if(op == '%' && rn != 0)
+                        resultat = ln % rn;
+             
+                    console.log(resultat);
+                    alert(resultat);
+                })
+            })
+        </script>
+    </body>
+</html>    

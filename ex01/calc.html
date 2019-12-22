@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <input type="text" id="left" size="50">
+        <br />
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+            <option value="*">*</option>
+        </select>
+        <br />
+        <input type="text" id="right" size="50" >
+        <br />
+        <input type="submit" value="Try me!" onclick="calculate()">
+          
+        <script>         
+            function calculate(){
+                var left = document.getElementById("left").value;
+                var right = document.getElementById("right").value;
+                var ln = Number(left);
+                var rn = Number(right);
+                var op = document.getElementById("operator").value;
+                var resultat;
+
+                if(ln < 0 || rn < 0)
+                    alert("Error :(");
+                if(op == '+')
+                    resultat = ln + rn;
+                if(op == '-')
+                    resultat = ln - rn;
+                if(op == '*')
+                    resultat = ln * rn;
+                if(op == '/' && rn == 0)
+                    resultat = "It’s over 9000!";
+                else if(op == '/' && rn != 0)
+                    resultat = ln / rn;
+                if(op == '%' && rn == 0)
+                    resultat = "It’s over 9000!";
+                else if(op == '%' && rn != 0)
+                    resultat = ln % rn;
+             
+                console.log(resultat);
+                alert(resultat);
+            }
+        </script>
+
+    </body>
+</html>
